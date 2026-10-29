@@ -1,15 +1,12 @@
-# Qiskit Fall Fest 2026 — O1 Max-Cut Core Dependencies
-# Compatible with Qiskit 2.x ecosystem and Python 3.10+
-
-qiskit>=2.0.0
-qiskit-aer>=0.16.0
-qiskit-ibm-runtime>=0.40.0
-networkx>=3.0
-numpy>=2.0.0
-scipy>=1.14.0
-pandas>=2.2.0
-matplotlib>=3.8.0
-pytest>=8.0.0
-nbformat>=5.10.0
-nbclient>=0.10.0
-ipykernel>=6.29.0
+# Qiskit Fall Fest 2026 Phase 2 (Optimization Track - PS-O1)
+# Verified reproducible environment (Python 3.12.10 64-bit)
+# All pinned versions strictly comply with official starter-pack ranges (qiskit >= 1.4, < 3; qiskit-aer >= 0.17)
+qiskit==2.6.0
+qiskit-aer==0.17.2
+numpy==2.5.4
+scipy==1.18.1
+networkx==3.7
+matplotlib==3.11.2
+pytest==9.1.1
+nbformat==5.11.1
+nbclient==0.11.0

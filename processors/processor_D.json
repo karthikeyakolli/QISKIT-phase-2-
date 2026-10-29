@@ -1,0 +1,30 @@
+{
+  "name": "Processor D",
+  "team": "Team Antigravity Quantum",
+  "problem_statement": "PS-O1",
+  "num_qubits": 6,
+  "edges": [
+    [0, 2],
+    [0, 3],
+    [0, 4],
+    [1, 4],
+    [1, 5],
+    [2, 3],
+    [2, 4],
+    [3, 4],
+    [3, 5]
+  ],
+  "basis_gates": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "noise": {
+    "model": "official",
+    "p1": 0.001,
+    "p2": 0.005,
+    "p_readout": 0.01
+  },
+  "design_rationale": "A 6-qubit topology tailored directly to the 9 interaction edges of the PS-O1 graph, eliminating all routing SWAP gates (SWAPs=0, CX overhead=0) while satisfying maximum degree <= 4 and connectivity constraints."
+}
