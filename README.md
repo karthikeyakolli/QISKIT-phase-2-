@@ -4,7 +4,7 @@
 **Team Name:** Team Antigravity Quantum  
 **Track:** Quantum Optimization Track  
 **Problem Statement Code:** **PS-O1** (Network Partitioning / Weighted Max-Cut)  
-**Submission Repository:** Public GitHub Repository  
+**Submission Repository:** [https://github.com/karthikeyakolli/QISKIT-phase-2-](https://github.com/karthikeyakolli/QISKIT-phase-2-)  
 **Commit Deadline:** Day 2, 5:40 PM IST  
 
 ---
@@ -105,8 +105,8 @@ Using the official locked 6-vertex weighted network ($|V|=6, |E|=9$, total weigh
 ### Setup Commands
 ```bash
 # 1. Clone the repository
-git clone https://github.com/karthikeyakolli/MAXCUT.git
-cd MAXCUT
+git clone https://github.com/karthikeyakolli/QISKIT-phase-2-.git
+cd QISKIT-phase-2-
 
 # 2. Create and activate a clean virtual environment
 python -m venv opt-env
@@ -147,7 +147,7 @@ jupyter nbconvert --to notebook --execute main.ipynb --output main_executed.ipyn
 
 | Gate | Requirement Description | Compliance Status | Evidence |
 |:---:|:---|:---:|:---|
-| **G1** | Public GitHub repo submitted before deadline | **PASS** | Repository is public and ready for submission before Day 2, 5:40 PM IST. |
+| **G1** | Public GitHub repo submitted on hackathon portal before deadline | **READY FOR SUBMISSION** | Public repository URL (`https://github.com/karthikeyakolli/QISKIT-phase-2-`) is verified, public, and prepared for portal submission by the team before Day 2, 5:40 PM IST. |
 | **G2** | Exactly one problem statement named (PS-O1), matching Phase 1 | **PASS** | Explicitly named PS-O1 throughout README, code, and reports. |
 | **G3** | Clean-clone judge can run `main.ipynb` without code editing | **PASS** | Tested headlessly on clean Python 3.12 environment; completes in <2 min. |
 | **G4** | Correctly formatted `results.csv` and technical report exist | **PASS** | `results/tables/results.csv`, `results/tables/bell.csv`, and `report.md` exist and match exact kit schemas. |

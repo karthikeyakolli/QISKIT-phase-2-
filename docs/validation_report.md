@@ -94,6 +94,6 @@ python -m pytest -v tests/
 ```
 Result:
 ```
-======================== 23 passed, 1 warning in 5.31s ========================
+======================= 58 passed, 1 warning in 18.78s =======================
 ```
-All 23 comprehensive tests covering instance data, classical enumeration, formulation equivalence, QAOA ansatz, processor rules, benchmark outputs, Bell states, and artifact integrity passed.
+All 58 comprehensive tests covering instance data, classical enumeration, formulation equivalence, QAOA ansatz, processor rules, benchmark outputs, Bell states, artifact integrity, and headless integration passed.

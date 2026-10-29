@@ -44,5 +44,5 @@ Requirements are derived strictly from:
 | **REQ-19** | Four required figures generated | Challenge Kit §10; Rubric Obj 5 | `results/figures/` | `test_required_files_exist` | **PASS** | Generated 300 DPI publication plots for graph, topology, quality, and resources. |
 | **REQ-20** | Reproducible top-to-bottom notebook | Challenge Kit §10; Rubric Obj 4 | `main.ipynb` | Headless nbconvert execution | **PASS** | Completes in < 2 minutes on standard CPU without manual intervention. |
 | **REQ-21** | Technical report (4–8 pages) covering all required sections | Challenge Kit §10; Rubric Obj 5 | `report.md` | Verification of sections 1–14 | **PASS** | Full scientific documentation including trade-offs, bottlenecks, and limitations. |
-| **REQ-22** | Judging eligibility gates G1–G4 satisfied | Rubric §1 | `README.md` | Gate verification checklist | **PASS** | G1 (public repo), G2 (single problem PS-O1), G3 (reproducibility), G4 (CSVs & report). |
+| **REQ-22** | Judging eligibility gates G1–G4 satisfied | Rubric §1 | `README.md` | Gate verification checklist | **READY** | G2, G3, G4 fully verified; G1 public repo prepared for portal entry prior to Day 2 deadline. |
 | **REQ-23** | AI tool usage disclosure | Challenge Kit §10 | `README.md` §5 | Content verification | **PASS** | Explicitly declared tool name, scope of assistance, and human responsibility. |
