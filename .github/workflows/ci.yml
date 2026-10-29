@@ -37,22 +37,20 @@ jobs:
         env:
           PYTHONPATH: .
           MPLBACKEND: Agg
+        shell: bash
         run: |
+          set -o pipefail
           python -m pytest -v --tb=short tests 2>&1 | tee /tmp/test_output.log
-        continue-on-error: true
 
       - name: Log Test Results and Summary
         if: always()
         run: |
           echo "### Test Execution Results" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          tail -n 80 /tmp/test_output.log >> $GITHUB_STEP_SUMMARY || true
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          if [ "${{ steps.run_tests.outcome }}" != "success" ]; then
-            echo "Test suite failed! Full output:"
-            cat /tmp/test_output.log
-            exit 1
+          if [ -f /tmp/test_output.log ]; then
+            tail -n 80 /tmp/test_output.log >> $GITHUB_STEP_SUMMARY
           fi
+          echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Validate required artifacts and pre-rendered notebook
         env:

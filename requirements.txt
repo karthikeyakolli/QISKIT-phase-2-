@@ -1,12 +1,15 @@
 # Qiskit Fall Fest 2026 Phase 2 (Optimization Track - PS-O1)
-# Verified reproducible environment (Python 3.12.10 64-bit)
-# All pinned versions strictly comply with official starter-pack ranges (qiskit >= 1.4, < 3; qiskit-aer >= 0.17)
-qiskit==2.6.0
-qiskit-aer==0.17.2
-numpy==2.5.4
-scipy==1.18.1
-networkx==3.7
-matplotlib==3.11.2
-pytest==9.1.1
-nbformat==5.11.1
-nbclient==0.11.0
+# Cross-version compatibility supporting Python 3.11 and 3.12
+# Fully compliant with official starter-pack ranges (qiskit >= 1.4, < 3; qiskit-aer >= 0.17; numpy >= 1.26; scipy >= 1.11)
+qiskit>=1.4.0,<3.0.0
+qiskit-aer>=0.17.0
+numpy>=1.26.0,<2.5.0; python_version < '3.12'
+numpy>=1.26.0,<=2.5.4; python_version >= '3.12'
+scipy>=1.11.0,<1.18.0; python_version < '3.12'
+scipy>=1.11.0,<=1.18.1; python_version >= '3.12'
+networkx>=3.0
+matplotlib>=3.7.0,<=3.11.2
+pytest>=8.0
+nbformat>=5.9
+nbclient>=0.10
+ipykernel>=6.29.0

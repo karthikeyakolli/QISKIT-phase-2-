@@ -65,16 +65,32 @@ def test_notebook_headless_execution():
     with open(notebook_path, "r", encoding="utf-8") as f:
         nb = nbformat.read(f, as_version=4)
         
-    client = NotebookClient(nb, timeout=120, kernel_name="python3")
-    client.execute()
-    
-    # Check that cells completed without error and produced outputs
-    code_cells = [cell for cell in nb.cells if cell.cell_type == "code"]
-    assert len(code_cells) >= 10
-    
-    # Verify outputs exist
-    outputs_found = sum(len(c.get("outputs", [])) for c in code_cells)
-    assert outputs_found > 0
+    import shutil
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # Copy required modules, configs, and instance data into isolated test sandbox
+        shutil.copy(notebook_path, os.path.join(tmpdir, "main.ipynb"))
+        shutil.copy("qff_phase2.py", os.path.join(tmpdir, "qff_phase2.py"))
+        shutil.copytree("src", os.path.join(tmpdir, "src"))
+        shutil.copytree("data", os.path.join(tmpdir, "data"))
+        shutil.copytree("processors", os.path.join(tmpdir, "processors"))
+        if os.path.exists("instances"):
+            shutil.copytree("instances", os.path.join(tmpdir, "instances"))
+
+        client = NotebookClient(nb, timeout=120, kernel_name="python3", resources={"metadata": {"path": tmpdir}})
+        client.execute()
+
+        # Check that cells completed without error and produced outputs
+        code_cells = [cell for cell in nb.cells if cell.cell_type == "code"]
+        assert len(code_cells) >= 10
+
+        # Verify outputs exist
+        outputs_found = sum(len(c.get("outputs", [])) for c in code_cells)
+        assert outputs_found > 0
+
+        # Verify that the notebook generated the expected tables and figures in the sandbox
+        assert os.path.isfile(os.path.join(tmpdir, "results", "tables", "results.csv"))
+        assert os.path.isfile(os.path.join(tmpdir, "results", "tables", "bell.csv"))
+        assert os.path.isfile(os.path.join(tmpdir, "results", "figures", "weighted_graph.png"))
 
 
 @pytest.mark.unit
