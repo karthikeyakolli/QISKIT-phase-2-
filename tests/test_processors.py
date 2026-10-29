@@ -83,9 +83,10 @@ def test_processor_d_official_validation_and_freeze_hash():
         # cm is bidirectional, so neighbors count equals degree
         assert len(cm.neighbors(q)) <= 4
         
-    # Verify exact frozen SHA-256 hash
+    # Verify exact frozen SHA-256 hash (normalized to LF line endings for cross-platform reproducibility)
     with open("processors/processor_D.json", "rb") as f:
-        file_hash = hashlib.sha256(f.read()).hexdigest()
+        file_bytes = f.read().replace(b"\r\n", b"\n")
+        file_hash = hashlib.sha256(file_bytes).hexdigest()
     assert file_hash == "652e064ecfd10f405a4226bc274f941a36f45865326901030a898ba8d2f37c57"
 
 
